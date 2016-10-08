@@ -28,6 +28,16 @@
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "C7B7C3921DA8782300924443"
+               BuildableName = "TicTacToeTests.xctest"
+               BlueprintName = "TicTacToeTests"
+               ReferencedContainer = "container:tictactoe.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
       <MacroExpansion>
          <BuildableReference
@@ -53,6 +63,7 @@
       allowLocationSimulation = "YES">
       <PathRunnable
          runnableDebuggingMode = "0"
+         BundleIdentifier = "com.apple.Terminal"
          FilePath = "/Applications/Utilities/Terminal.app">
       </PathRunnable>
       <MacroExpansion>

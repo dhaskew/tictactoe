@@ -14,6 +14,12 @@
 		C7B7C3871D98624800924443 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7B7C3861D98624800924443 /* Logger.swift */; };
 		C7B7C3891DA3342C00924443 /* IO.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7B7C3881DA3342C00924443 /* IO.swift */; };
 		C7B7C38B1DA86C0000924443 /* GameSetup.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7B7C38A1DA86C0000924443 /* GameSetup.swift */; };
+		C7B7C3961DA8782300924443 /* TicTacToeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7B7C3951DA8782300924443 /* TicTacToeTests.swift */; };
+		C7B7C39C1DA878F300924443 /* PlayerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7B7C39B1DA878F300924443 /* PlayerTests.swift */; };
+		C7B7C39D1DA93A3C00924443 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7B7C3821D96264000924443 /* Player.swift */; };
+		C7B7C3A31DA9416D00924443 /* Board.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7B7C3841D972BD200924443 /* Board.swift */; };
+		C7B7C3A51DA941CE00924443 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7B7C3861D98624800924443 /* Logger.swift */; };
+		C7B7C3A61DA9447A00924443 /* GameSetup.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7B7C38A1DA86C0000924443 /* GameSetup.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -37,10 +43,21 @@
 		C7B7C3861D98624800924443 /* Logger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
 		C7B7C3881DA3342C00924443 /* IO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IO.swift; sourceTree = "<group>"; };
 		C7B7C38A1DA86C0000924443 /* GameSetup.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameSetup.swift; sourceTree = "<group>"; };
+		C7B7C3931DA8782300924443 /* TicTacToeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TicTacToeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		C7B7C3951DA8782300924443 /* TicTacToeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TicTacToeTests.swift; sourceTree = "<group>"; };
+		C7B7C3971DA8782300924443 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C7B7C39B1DA878F300924443 /* PlayerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		C7B7C3731D8CC4FE00924443 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C7B7C3901DA8782300924443 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -54,6 +71,7 @@
 			isa = PBXGroup;
 			children = (
 				C7B7C3781D8CC4FE00924443 /* tictactoe */,
+				C7B7C3941DA8782300924443 /* TicTacToeTests */,
 				C7B7C3771D8CC4FE00924443 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -62,6 +80,7 @@
 			isa = PBXGroup;
 			children = (
 				C7B7C3761D8CC4FE00924443 /* tictactoe */,
+				C7B7C3931DA8782300924443 /* TicTacToeTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -78,6 +97,16 @@
 				C7B7C38A1DA86C0000924443 /* GameSetup.swift */,
 			);
 			path = tictactoe;
+			sourceTree = "<group>";
+		};
+		C7B7C3941DA8782300924443 /* TicTacToeTests */ = {
+			isa = PBXGroup;
+			children = (
+				C7B7C3951DA8782300924443 /* TicTacToeTests.swift */,
+				C7B7C3971DA8782300924443 /* Info.plist */,
+				C7B7C39B1DA878F300924443 /* PlayerTests.swift */,
+			);
+			path = TicTacToeTests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -100,6 +129,23 @@
 			productReference = C7B7C3761D8CC4FE00924443 /* tictactoe */;
 			productType = "com.apple.product-type.tool";
 		};
+		C7B7C3921DA8782300924443 /* TicTacToeTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C7B7C3981DA8782300924443 /* Build configuration list for PBXNativeTarget "TicTacToeTests" */;
+			buildPhases = (
+				C7B7C38F1DA8782300924443 /* Sources */,
+				C7B7C3901DA8782300924443 /* Frameworks */,
+				C7B7C3911DA8782300924443 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = TicTacToeTests;
+			productName = TicTacToeTests;
+			productReference = C7B7C3931DA8782300924443 /* TicTacToeTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -111,6 +157,9 @@
 				ORGANIZATIONNAME = "David Askew";
 				TargetAttributes = {
 					C7B7C3751D8CC4FE00924443 = {
+						CreatedOnToolsVersion = 7.3.1;
+					};
+					C7B7C3921DA8782300924443 = {
 						CreatedOnToolsVersion = 7.3.1;
 					};
 				};
@@ -128,9 +177,20 @@
 			projectRoot = "";
 			targets = (
 				C7B7C3751D8CC4FE00924443 /* tictactoe */,
+				C7B7C3921DA8782300924443 /* TicTacToeTests */,
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		C7B7C3911DA8782300924443 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		C7B7C3721D8CC4FE00924443 /* Sources */ = {
@@ -144,6 +204,19 @@
 				C7B7C3851D972BD200924443 /* Board.swift in Sources */,
 				C7B7C3811D96206D00924443 /* Game.swift in Sources */,
 				C7B7C3891DA3342C00924443 /* IO.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C7B7C38F1DA8782300924443 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C7B7C3A51DA941CE00924443 /* Logger.swift in Sources */,
+				C7B7C3A61DA9447A00924443 /* GameSetup.swift in Sources */,
+				C7B7C3A31DA9416D00924443 /* Board.swift in Sources */,
+				C7B7C39D1DA93A3C00924443 /* Player.swift in Sources */,
+				C7B7C39C1DA878F300924443 /* PlayerTests.swift in Sources */,
+				C7B7C3961DA8782300924443 /* TicTacToeTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -235,6 +308,8 @@
 		C7B7C37E1D8CC4FE00924443 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				DEFINES_MODULE = NO;
+				ENABLE_TESTABILITY = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -242,6 +317,30 @@
 		C7B7C37F1D8CC4FE00924443 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				DEFINES_MODULE = NO;
+				ENABLE_TESTABILITY = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		C7B7C3991DA8782300924443 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = TicTacToeTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = aske.ws.TicTacToeTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		C7B7C39A1DA8782300924443 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = TicTacToeTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = aske.ws.TicTacToeTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
@@ -263,6 +362,14 @@
 			buildConfigurations = (
 				C7B7C37E1D8CC4FE00924443 /* Debug */,
 				C7B7C37F1D8CC4FE00924443 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		C7B7C3981DA8782300924443 /* Build configuration list for PBXNativeTarget "TicTacToeTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C7B7C3991DA8782300924443 /* Debug */,
+				C7B7C39A1DA8782300924443 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 		};

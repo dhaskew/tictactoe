@@ -14,9 +14,9 @@ enum PlayerType
     case Computer
 }
 
-class Player : CustomStringConvertible
+class Player : CustomStringConvertible, Equatable
 {
-    private var Name: String
+    internal var Name: String
     private var Type: PlayerType
     
     var description: String
@@ -30,4 +30,8 @@ class Player : CustomStringConvertible
         Type = player_type
     }
     
+}
+
+func ==(lhs: Player, rhs: Player) -> Bool {
+    return lhs.Name == rhs.Name
 }

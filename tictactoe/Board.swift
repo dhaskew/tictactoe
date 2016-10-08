@@ -8,7 +8,7 @@
 
 import Foundation
 
-class Board
+class Board : Equatable
 {
     private var BoardData: [String] = [" "," "," "," "," "," "," "," "," "]
     
@@ -38,4 +38,8 @@ class AsciiBoard : Board
         print(super.BoardData[6] + " | " + super.BoardData[7] + " | " + super.BoardData[8])
         sleep(5)
     }
+}
+
+func ==(lhs: Board, rhs: Board) -> Bool {
+    return lhs.BoardData == rhs.BoardData
 }
