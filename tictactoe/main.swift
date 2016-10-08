@@ -8,5 +8,10 @@
 
 import Foundation
 
-print("Hello, World!")
+IO.PrintWelcomeMessage()
 
+let setup = IO.SetupGame()
+
+var g = Game(initial_setup: setup)
+
+exit(EXIT_SUCCESS)
