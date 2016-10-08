@@ -7,3 +7,27 @@
 //
 
 import Foundation
+
+enum PlayerType
+{
+    case Human
+    case Computer
+}
+
+class Player : CustomStringConvertible
+{
+    private var Name: String
+    private var Type: PlayerType
+    
+    var description: String
+    {
+        return "Player: \(Name) - Type: \(Type)"
+    }
+    
+    init(player_name: String, player_type: PlayerType)
+    {
+        Name = player_name
+        Type = player_type
+    }
+    
+}

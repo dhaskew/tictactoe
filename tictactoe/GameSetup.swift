@@ -7,3 +7,9 @@
 //
 
 import Foundation
+
+struct GameSetup {
+    let PlayerCount: Int
+    let Player1: Player
+    let Player2: Player
+}
