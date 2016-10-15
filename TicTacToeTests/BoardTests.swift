@@ -1,17 +1,17 @@
 //
-//  TicTacToeTests.swift
-//  TicTacToeTests
+//  BoardTests.swift
+//  tictactoe
 //
-//  Created by David Askew on 10/7/16.
+//  Created by David Askew on 10/8/16.
 //  Copyright © 2016 David Askew. All rights reserved.
 //
 
 import XCTest
-
 @testable import tictactoe
 
-class TicTacToeTests: XCTestCase {
-    
+class BoardTests: XCTestCase {
+
+
     override func setUp() {
         super.setUp()
         // Put setup code here. This method is called before the invocation of each test method in the class.
@@ -21,10 +21,13 @@ class TicTacToeTests: XCTestCase {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
         super.tearDown()
     }
-    
-    func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+
+    func testBoard()
+    {
+        let a = AsciiBoard()
+        let b = AsciiBoard()
+        XCTAssertEqual(a, b)
+        XCTAssert(a !== b)
     }
     
     func testPerformanceExample() {
@@ -33,5 +36,5 @@ class TicTacToeTests: XCTestCase {
             // Put the code you want to measure the time of here.
         }
     }
-    
+
 }

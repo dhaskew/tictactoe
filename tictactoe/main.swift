@@ -14,4 +14,8 @@ let setup = IO.SetupGame()
 
 var g = Game(initial_setup: setup)
 
+g.Play()
+
+sleep(2)
+
 exit(EXIT_SUCCESS)

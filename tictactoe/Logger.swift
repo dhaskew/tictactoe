@@ -10,24 +10,24 @@ import Foundation
 
 class Logger
 {
-    static func LogStart(type: Any, _ function: String = #function, _ message: String = "Start")
+    static func LogStart(_ type: Any, _ function: String = #function, _ message: String = "Start")
     {
         Log(type,function,message)
     }
     
-    static func LogEnd(type: Any, _ function: String = #function, _ message: String = "End")
+    static func LogEnd(_ type: Any, _ function: String = #function, _ message: String = "End")
     {
         Log(type,function,message)
     }
     
-    static func Log(type: Any, _ function: String = #function, _ message: String = "")
+    static func Log(_ type: Any, _ function: String = #function, _ message: String = "")
     {
-        let dateFormatter = NSDateFormatter()
+        let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "MM/dd/yyyy HH:mm:ss:SSS"
         
-        var date: String { return dateFormatter.stringFromDate(NSDate())}
+        var date: String { return dateFormatter.string(from: Date())}
         
-        print("\(date) - \(String(type)) - \(function) : \(message)")
+        print("\(date) - \(String(describing: type)) - \(function) : \(message)")
     }
 }
 

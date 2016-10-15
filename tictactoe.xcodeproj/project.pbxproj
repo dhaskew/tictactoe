@@ -20,6 +20,11 @@
 		C7B7C3A31DA9416D00924443 /* Board.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7B7C3841D972BD200924443 /* Board.swift */; };
 		C7B7C3A51DA941CE00924443 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7B7C3861D98624800924443 /* Logger.swift */; };
 		C7B7C3A61DA9447A00924443 /* GameSetup.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7B7C38A1DA86C0000924443 /* GameSetup.swift */; };
+		C7B7C3A81DA958E100924443 /* BoardTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7B7C3A71DA958E100924443 /* BoardTests.swift */; };
+		C7B7C3AA1DA9594900924443 /* GameHistory.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7B7C3A91DA9594900924443 /* GameHistory.swift */; };
+		C7B7C3AB1DA9594900924443 /* GameHistory.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7B7C3A91DA9594900924443 /* GameHistory.swift */; };
+		C7B7C3AC1DA95A3100924443 /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7B7C3801D96206D00924443 /* Game.swift */; };
+		C7B7C3AD1DA95A3700924443 /* IO.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7B7C3881DA3342C00924443 /* IO.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -47,6 +52,8 @@
 		C7B7C3951DA8782300924443 /* TicTacToeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TicTacToeTests.swift; sourceTree = "<group>"; };
 		C7B7C3971DA8782300924443 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C7B7C39B1DA878F300924443 /* PlayerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerTests.swift; sourceTree = "<group>"; };
+		C7B7C3A71DA958E100924443 /* BoardTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BoardTests.swift; sourceTree = "<group>"; };
+		C7B7C3A91DA9594900924443 /* GameHistory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameHistory.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,6 +102,7 @@
 				C7B7C3861D98624800924443 /* Logger.swift */,
 				C7B7C3881DA3342C00924443 /* IO.swift */,
 				C7B7C38A1DA86C0000924443 /* GameSetup.swift */,
+				C7B7C3A91DA9594900924443 /* GameHistory.swift */,
 			);
 			path = tictactoe;
 			sourceTree = "<group>";
@@ -105,6 +113,7 @@
 				C7B7C3951DA8782300924443 /* TicTacToeTests.swift */,
 				C7B7C3971DA8782300924443 /* Info.plist */,
 				C7B7C39B1DA878F300924443 /* PlayerTests.swift */,
+				C7B7C3A71DA958E100924443 /* BoardTests.swift */,
 			);
 			path = TicTacToeTests;
 			sourceTree = "<group>";
@@ -153,14 +162,16 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0730;
-				LastUpgradeCheck = 0730;
+				LastUpgradeCheck = 0800;
 				ORGANIZATIONNAME = "David Askew";
 				TargetAttributes = {
 					C7B7C3751D8CC4FE00924443 = {
 						CreatedOnToolsVersion = 7.3.1;
+						LastSwiftMigration = 0800;
 					};
 					C7B7C3921DA8782300924443 = {
 						CreatedOnToolsVersion = 7.3.1;
+						LastSwiftMigration = 0800;
 					};
 				};
 			};
@@ -197,6 +208,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C7B7C3AA1DA9594900924443 /* GameHistory.swift in Sources */,
 				C7B7C3871D98624800924443 /* Logger.swift in Sources */,
 				C7B7C38B1DA86C0000924443 /* GameSetup.swift in Sources */,
 				C7B7C37A1D8CC4FE00924443 /* main.swift in Sources */,
@@ -211,11 +223,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C7B7C3AB1DA9594900924443 /* GameHistory.swift in Sources */,
+				C7B7C3AC1DA95A3100924443 /* Game.swift in Sources */,
 				C7B7C3A51DA941CE00924443 /* Logger.swift in Sources */,
+				C7B7C3AD1DA95A3700924443 /* IO.swift in Sources */,
 				C7B7C3A61DA9447A00924443 /* GameSetup.swift in Sources */,
 				C7B7C3A31DA9416D00924443 /* Board.swift in Sources */,
 				C7B7C39D1DA93A3C00924443 /* Player.swift in Sources */,
 				C7B7C39C1DA878F300924443 /* PlayerTests.swift in Sources */,
+				C7B7C3A81DA958E100924443 /* BoardTests.swift in Sources */,
 				C7B7C3961DA8782300924443 /* TicTacToeTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -237,8 +253,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_IDENTITY = "-";
@@ -282,8 +300,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_IDENTITY = "-";
@@ -302,6 +322,7 @@
 				MACOSX_DEPLOYMENT_TARGET = 10.11;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = macosx;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 			};
 			name = Release;
 		};
@@ -311,6 +332,7 @@
 				DEFINES_MODULE = NO;
 				ENABLE_TESTABILITY = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -320,6 +342,7 @@
 				DEFINES_MODULE = NO;
 				ENABLE_TESTABILITY = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};
@@ -331,6 +354,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = aske.ws.TicTacToeTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -342,6 +366,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = aske.ws.TicTacToeTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};
@@ -364,6 +389,7 @@
 				C7B7C37F1D8CC4FE00924443 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		C7B7C3981DA8782300924443 /* Build configuration list for PBXNativeTarget "TicTacToeTests" */ = {
 			isa = XCConfigurationList;
@@ -372,6 +398,7 @@
 				C7B7C39A1DA8782300924443 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

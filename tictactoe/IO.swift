@@ -24,18 +24,25 @@ class IO
     {
         
         // 1
-        let keyboard = NSFileHandle.fileHandleWithStandardInput()
+        let keyboard = FileHandle.standardInput
         
         // 2
         let inputData = keyboard.availableData
         
         // 3
-        let strData = NSString(data: inputData, encoding: NSUTF8StringEncoding)!
+        let strData = NSString(data: inputData, encoding: String.Encoding.utf8.rawValue)!
         
         // 4
-        return strData.stringByTrimmingCharactersInSet(NSCharacterSet.newlineCharacterSet())
+        return strData.trimmingCharacters(in: CharacterSet.newlines)
     }
     
+    static func GetNextPlay(player_name: String) -> Int
+    {
+        print("Your turn \(player_name). What position to play [0-8]?")
+        print("--->  ", terminator: "")
+        let position = Int(IO.GetInput())
+        return position!
+    }
     
     static func SetupGame() -> GameSetup
     {
@@ -52,13 +59,13 @@ class IO
         print("Players: \(players!)")
         print("")
     
-        let p1 = Player(player_name: name, player_type: PlayerType.Human)
+        let p1 = Player(player_name: name, player_type: PlayerType.human, player_symbol: "X")
         
         var p2: Player
         
         if(players! == 1)
         {
-            p2 = Player(player_name: "CPU", player_type: PlayerType.Computer)
+            p2 = Player(player_name: "CPU", player_type: PlayerType.computer, player_symbol: "O")
         }
         else
         {
@@ -66,7 +73,7 @@ class IO
             print("--> ", terminator: "")
             let name2 = IO.GetInput()
             print("")
-            p2 = Player(player_name: name2, player_type: PlayerType.Human)
+            p2 = Player(player_name: name2, player_type: PlayerType.human, player_symbol: "O")
         }
         
         let GS = GameSetup(PlayerCount: players!, Player1: p1, Player2: p2)

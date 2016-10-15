@@ -10,24 +10,26 @@ import Foundation
 
 enum PlayerType
 {
-    case Human
-    case Computer
+    case human
+    case computer
 }
 
 class Player : CustomStringConvertible, Equatable
 {
     internal var Name: String
-    private var Type: PlayerType
+    internal var TypeOfPlayer: PlayerType
+    internal var Symbol: Character
     
     var description: String
     {
-        return "Player: \(Name) - Type: \(Type)"
+        return "Player: \(Name) - Type: \(TypeOfPlayer)"
     }
     
-    init(player_name: String, player_type: PlayerType)
+    init(player_name: String, player_type: PlayerType, player_symbol: Character)
     {
         Name = player_name
-        Type = player_type
+        TypeOfPlayer = player_type
+        Symbol = player_symbol
     }
     
 }
