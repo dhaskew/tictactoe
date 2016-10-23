@@ -32,14 +32,9 @@ class Game : CustomStringConvertible
     {
         self.Player1 = initial_setup.Player1
         self.Player2 = initial_setup.Player2
-        
-        //Player1 = Player(player_name: "David", player_type: PlayerType.Human)
-        //Player2 = Player(player_name: "Elaine", player_type: PlayerType.Computer)
+
         
         State = GameState.new
-        
-        //print(Player1)
-        //print(Player2)
         
         GameBoard = AsciiBoard()
         
@@ -47,7 +42,6 @@ class Game : CustomStringConvertible
         
         CurrentPlayer = Player1
         
-        //print(self)
     }
     
     func Won() -> Bool
@@ -93,6 +87,18 @@ class Game : CustomStringConvertible
         return 0 + Int(arc4random_uniform(UInt32(8 - 0 + 1)))
     }
     
+    private func SwitchCurrentPlayer() -> Void
+    {
+        if(CurrentPlayer == Player1)
+        {
+            CurrentPlayer = Player2
+        }
+        else
+        {
+            CurrentPlayer = Player1
+        }
+    }
+    
     func Play()
     {
         State = GameState.inProgress
@@ -101,24 +107,47 @@ class Game : CustomStringConvertible
         {
             //collect user input
             
-            let pos: Int
+            var pos: Int?
             
-            if(CurrentPlayer.TypeOfPlayer == PlayerType.human)
-            {
-                pos = IO.GetNextPlay(player_name: CurrentPlayer.Name)
-            }
-            else
-            {
-                pos = RandomPlay()
-            }
-        
-            //is the input valid?
+            var validInput = false
             
+            while(validInput == false)
+            {
+                if(CurrentPlayer.TypeOfPlayer == PlayerType.human)
+                {
+                    pos = IO.GetNextPlay(player_name: CurrentPlayer.Name)
+                }
+                else
+                {
+                    pos = RandomPlay()
+                }
+                
+                //is the input valid?
+                validInput = (GameBoard.BoardData[pos!] == " ")
+                if(!validInput)
+                {
+                    if(CurrentPlayer.TypeOfPlayer == PlayerType.human)
+                    {
+                        print("Invalid play. Try again.")
+                    }
+                }
+            }
+
             //update board
-            GameBoard.BoardData[pos] = "\(CurrentPlayer.Symbol)"
+            if pos != nil
+            {
+                GameBoard.BoardData[pos!] = "\(CurrentPlayer.Symbol)"
+            }
+
+            if(CurrentPlayer.TypeOfPlayer == PlayerType.computer)
+            {
+                print("Computer player played at position \(pos!)")
+            }
             
             //print board
+            print("")
             GameBoard.Print()
+            print("")
             
             //calculate if winner
             if( Won() )
@@ -129,17 +158,11 @@ class Game : CustomStringConvertible
             }
             
             //set next player
-            if(CurrentPlayer == Player1)
-            {
-                CurrentPlayer = Player2
-            }
-            else
-            {
-                CurrentPlayer = Player1
-            }
+            SwitchCurrentPlayer()
+
         }
 
-        print("The winner is \(CurrentPlayer.Name)")
+        print("The winner is: \(CurrentPlayer.Name). Congrats to the winner!")
     }
     
 }

@@ -11,6 +11,14 @@ import Foundation
 class IO
 {
     
+    
+    //TODO: We should be trapping CNTRL-C.
+    //Quiters should be allowed to quit without losing.
+    
+    //FIXME: Test FIXME
+    
+    //MARK: - Test Mark
+    
     static func PrintWelcomeMessage()
     {
         print("")
@@ -20,7 +28,9 @@ class IO
         print("")
     }
     
-    static func GetInput() -> String
+    //MARK: - Test Mark 2
+    
+    static func GetInputAsString() -> String
     {
         
         // 1
@@ -38,41 +48,123 @@ class IO
     
     static func GetNextPlay(player_name: String) -> Int
     {
-        print("Your turn \(player_name). What position to play [0-8]?")
-        print("--->  ", terminator: "")
-        let position = Int(IO.GetInput())
+        var inputValid = false
+        var position: Int?
+        var pos_string: String?
+        
+        while(!inputValid)
+        {
+            print("Your turn \(player_name). What position to play [0-8]? or [h] for help or [q] for quit.")
+            print("--->  ", terminator: "")
+            pos_string = IO.GetInputAsString()
+            
+            if (pos_string!.isNumeric)
+            {
+                position = Int(pos_string!)
+                inputValid = true
+            }
+            
+            if(pos_string == "h")
+            {
+                PrintHelp()
+            }
+            
+            if(pos_string == "q")
+            {
+                print("Goodbye quiter!")
+                sleep(2)
+                exit(EXIT_SUCCESS)
+            }
+            
+        }
+
         return position!
+    }
+    
+    static func PrintHelp()
+    {
+        print("Help Text Goes Here")
+        AsciiBoard.PrintHelp()
+    }
+    
+    static func GetNumPlayers() -> Int
+    {
+        var inputValid = false
+        var players: Int?
+        var pcount_string = ""
+        
+        while(!inputValid || pcount_string.isEmpty)
+        {
+
+            print("How many players?")
+            print("--->  ", terminator: "")
+                
+            pcount_string = IO.GetInputAsString()
+                
+            if (pcount_string.isNumeric)
+            {
+                players = Int(pcount_string)
+                    
+                inputValid = true
+            }
+            else
+            {
+                pcount_string = ""
+            }
+
+        }
+        
+        return players!
     }
     
     static func SetupGame() -> GameSetup
     {
-        print("What is your name?")
-        print("--->  ", terminator: "")
-        let name = IO.GetInput()
+        var name = ""
+        
+        while(name.isEmpty)
+        {
+            print("What is your name?")
+            print("--->  ", terminator: "")
+            name = IO.GetInputAsString()
+        }
+        
         print("")
         print("Hello \(name)")
         print("")
-        print("How many players?")
-        print("--->  ", terminator: "")
-        let players = Int(IO.GetInput())
-        print("")
-        print("Players: \(players!)")
-        print("")
-    
+        
+        var players: Int?
+        var player_count_valid = false
+        
+        while(player_count_valid != true)
+        {
+            players = GetNumPlayers()
+            
+            if(players! <= 2 && players! > 0)
+            {
+                player_count_valid = true;
+            }
+        }
+
         let p1 = Player(player_name: name, player_type: PlayerType.human, player_symbol: "X")
         
         var p2: Player
         
-        if(players! == 1)
+        if(players == 1)
         {
             p2 = Player(player_name: "CPU", player_type: PlayerType.computer, player_symbol: "O")
         }
         else
         {
-            print("What is name of player 2?")
-            print("--> ", terminator: "")
-            let name2 = IO.GetInput()
-            print("")
+            var name2 = ""
+            
+            while(name2.isEmpty)
+            {
+                print("What is name of player 2?")
+                print("--> ", terminator: "")
+                name2 = IO.GetInputAsString()
+                print("")
+            }
+            
             p2 = Player(player_name: name2, player_type: PlayerType.human, player_symbol: "O")
         }
         
@@ -81,7 +173,20 @@ class IO
         return GS
     }
     
+    
+    
     //let stderr = NSFileHandle.fileHandleWithStandardError()
     //let stdout = NSFileHandle.fileHandleWithStandardOutput()
+}
+
+//MARK: Extension Methods
+
+extension String
+{
+    var isNumeric: Bool
+    {
+        let range = self.rangeOfCharacter(from: CharacterSet.decimalDigits.inverted)
+        return (range == nil)
+    }
 }
 
