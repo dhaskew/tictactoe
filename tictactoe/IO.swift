@@ -28,6 +28,30 @@ class IO
         print("")
     }
     
+    
+    static func StartMainMenu() -> String
+    {
+        print("")
+        
+        print("[N]: New Game")
+        print("[A]: About")
+        print("[Q]: Quit")
+        
+        print("")
+        
+        let response = GetInputAsStringWithPrompt(UserPrompt: "What would you like to do?")
+        
+        return response
+    }
+    
+    static func GetInputAsStringWithPrompt(UserPrompt: String) -> String
+    {
+        print(UserPrompt)
+        print("--->  ", terminator: "")
+        let response = GetInputAsString()
+        return response
+    }
+    
     //MARK: - Test Mark 2
     
     static func GetInputAsString() -> String
@@ -57,6 +81,12 @@ class IO
             print("Your turn \(player_name). What position to play [0-8]? or [h] for help or [q] for quit.")
             print("--->  ", terminator: "")
             pos_string = IO.GetInputAsString()
+            
+            if(pos_string == "")
+            {
+                inputValid = false
+                continue
+            }
             
             if (pos_string!.isNumeric)
             {
@@ -145,13 +175,13 @@ class IO
             }
         }
 
-        let p1 = Player(player_name: name, player_type: PlayerType.human, player_symbol: "X")
+        let p1 = Player(player_name: name, player_type: PlayerType.Human, player_symbol: "X")
         
         var p2: Player
         
         if(players == 1)
         {
-            p2 = Player(player_name: "CPU", player_type: PlayerType.computer, player_symbol: "O")
+            p2 = Player(player_name: "CPU", player_type: PlayerType.Computer, player_symbol: "O")
         }
         else
         {
@@ -165,7 +195,7 @@ class IO
                 print("")
             }
             
-            p2 = Player(player_name: name2, player_type: PlayerType.human, player_symbol: "O")
+            p2 = Player(player_name: name2, player_type: PlayerType.Human, player_symbol: "O")
         }
         
         let GS = GameSetup(PlayerCount: players!, Player1: p1, Player2: p2)

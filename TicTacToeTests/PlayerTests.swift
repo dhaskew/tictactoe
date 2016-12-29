@@ -25,8 +25,8 @@ class PlayerTests: XCTestCase {
     
     func testPlayer()
     {
-        let p1 = Player(player_name: "p1name", player_type: PlayerType.human, player_symbol: "O")
-        let p2 = Player(player_name: "p2name", player_type: PlayerType.human, player_symbol: "X")
+        let p1 = Player(player_name: "p1name", player_type: PlayerType.Human, player_symbol: "O")
+        let p2 = Player(player_name: "p2name", player_type: PlayerType.Human, player_symbol: "X")
         XCTAssertNotEqual(p1.Name, p2.Name, "\(p1.Name) is not \(p2.Name)")
     }
  
@@ -47,8 +47,8 @@ class PlayerTests: XCTestCase {
     func testNewPlayerPerformance()
     {
         self.measure({
-            let p1 = Player(player_name: "p1name", player_type: PlayerType.human, player_symbol: "O")
-            let p2 = Player(player_name: "p2name", player_type: PlayerType.human, player_symbol: "X")
+            let p1 = Player(player_name: "p1name", player_type: PlayerType.Human, player_symbol: "O")
+            let p2 = Player(player_name: "p2name", player_type: PlayerType.Human, player_symbol: "X")
             XCTAssertNotEqual(p1.Name, p2.Name, "\(p1.Name) is not \(p2.Name)")
         })
 

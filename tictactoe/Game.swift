@@ -23,16 +23,18 @@ class Game : CustomStringConvertible
     fileprivate var Winner: Player?
     fileprivate var CurrentPlayer: Player
     
+    internal var History: GameHistory?
     
     fileprivate var GameBoard: AsciiBoard
     
     var description: String { return "Game: \(State)"}
     
+    fileprivate var Created: Date
+    
     init(initial_setup: GameSetup)
     {
         self.Player1 = initial_setup.Player1
         self.Player2 = initial_setup.Player2
-
         
         State = GameState.new
         
@@ -42,9 +44,10 @@ class Game : CustomStringConvertible
         
         CurrentPlayer = Player1
         
+        Created = Date();
     }
     
-    func Won() -> Bool
+    func HasBeenWon() -> Bool
     {
         //horizontal wins
         let win1 = CheckWin(p1: 0, p2: 1, p3: 2)
@@ -113,7 +116,7 @@ class Game : CustomStringConvertible
             
             while(validInput == false)
             {
-                if(CurrentPlayer.TypeOfPlayer == PlayerType.human)
+                if(CurrentPlayer.TypeOfPlayer == PlayerType.Human)
                 {
                     pos = IO.GetNextPlay(player_name: CurrentPlayer.Name)
                 }
@@ -126,7 +129,7 @@ class Game : CustomStringConvertible
                 validInput = (GameBoard.BoardData[pos!] == " ")
                 if(!validInput)
                 {
-                    if(CurrentPlayer.TypeOfPlayer == PlayerType.human)
+                    if(CurrentPlayer.TypeOfPlayer == PlayerType.Human)
                     {
                         print("Invalid play. Try again.")
                     }
@@ -139,7 +142,7 @@ class Game : CustomStringConvertible
                 GameBoard.BoardData[pos!] = "\(CurrentPlayer.Symbol)"
             }
 
-            if(CurrentPlayer.TypeOfPlayer == PlayerType.computer)
+            if(CurrentPlayer.TypeOfPlayer == PlayerType.Computer)
             {
                 print("Computer player played at position \(pos!)")
             }
@@ -150,10 +153,16 @@ class Game : CustomStringConvertible
             print("")
             
             //calculate if winner
-            if( Won() )
+            if( HasBeenWon() )
             {
                 State = GameState.finished
                 Winner = CurrentPlayer
+                break;
+            }
+            
+            if( GameBoard.Full )
+            {
+                State = GameState.finished
                 break;
             }
             
@@ -162,7 +171,17 @@ class Game : CustomStringConvertible
 
         }
 
-        print("The winner is: \(CurrentPlayer.Name). Congrats to the winner!")
+        if( HasBeenWon() )
+        {
+            print("The winner is: \(CurrentPlayer.Name). Congrats to the winner!")
+        }
+        else
+        {
+            print("The game was a draw!")
+        }
+    
+        self.History = GameHistory(self.GameBoard, self.Player1, self.Player2, self.Created)
+    
     }
     
 }

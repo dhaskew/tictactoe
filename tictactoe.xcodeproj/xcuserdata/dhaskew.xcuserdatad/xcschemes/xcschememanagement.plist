@@ -9,6 +9,11 @@
 			<key>orderHint</key>
 			<integer>1</integer>
 		</dict>
+		<key>Tx3Lib.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>2</integer>
+		</dict>
 		<key>tictactoe.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
@@ -17,6 +22,16 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
+		<key>C759F0701DD414E20017BED8</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>C759F0781DD414E20017BED8</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>C7B7C3751D8CC4FE00924443</key>
 		<dict>
 			<key>primary</key>

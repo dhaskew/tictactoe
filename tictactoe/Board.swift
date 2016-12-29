@@ -10,7 +10,14 @@ import Foundation
 
 class Board : Equatable
 {
-    internal var BoardData: [String] = [" "," "," "," "," "," "," "," "," "]
+    internal var BoardData: [String] = [" "," "," "," "," "," "," "," "," "] {
+        willSet(newValue) {
+            //print("Board Data changed \(newValue).  We should be logging the plays (history) here.");
+            History.append(newValue)
+        }
+    }
+    
+    internal var History: [[String]] = []
     
     init()
     {
@@ -21,11 +28,24 @@ class Board : Equatable
 
 class AsciiBoard : Board
 {
+    
+    var Full: Bool
+    {
+        get {
+            return !BoardData.contains(" ")
+        }
+    }
+    
     override init()
     {
         super.init()
         //Logger.Log(self,#function,"Ascii Board object created");
     }
+    
+    //func Full() -> Bool
+    //{
+    //    return !BoardData.contains(" ")
+    //}
     
     func Print()
     {
