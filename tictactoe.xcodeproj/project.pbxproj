@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C7185DF11E1CA73F0047675B /* Events.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7185DF01E1CA73F0047675B /* Events.swift */; };
+		C7185DF21E1CA73F0047675B /* Events.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7185DF01E1CA73F0047675B /* Events.swift */; };
 		C759F07A1DD414E20017BED8 /* Tx3Lib.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C759F0711DD414E20017BED8 /* Tx3Lib.framework */; };
 		C759F07F1DD414E20017BED8 /* Tx3LibTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C759F07E1DD414E20017BED8 /* Tx3LibTests.swift */; };
 		C759F0811DD414E20017BED8 /* Tx3Lib.h in Headers */ = {isa = PBXBuildFile; fileRef = C759F0731DD414E20017BED8 /* Tx3Lib.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -57,6 +59,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		C7185DF01E1CA73F0047675B /* Events.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Events.swift; sourceTree = "<group>"; };
 		C759F0711DD414E20017BED8 /* Tx3Lib.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Tx3Lib.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C759F0731DD414E20017BED8 /* Tx3Lib.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Tx3Lib.h; sourceTree = "<group>"; };
 		C759F0741DD414E20017BED8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -157,6 +160,7 @@
 		C7B7C3781D8CC4FE00924443 /* tictactoe */ = {
 			isa = PBXGroup;
 			children = (
+				C7185DF01E1CA73F0047675B /* Events.swift */,
 				C7B7C3791D8CC4FE00924443 /* main.swift */,
 				C7B7C3801D96206D00924443 /* Game.swift */,
 				C7B7C3821D96264000924443 /* Player.swift */,
@@ -363,6 +367,7 @@
 				C7B7C3871D98624800924443 /* Logger.swift in Sources */,
 				C759F08B1DD415E10017BED8 /* Test.swift in Sources */,
 				C7B7C38B1DA86C0000924443 /* GameSetup.swift in Sources */,
+				C7185DF11E1CA73F0047675B /* Events.swift in Sources */,
 				C7B7C37A1D8CC4FE00924443 /* main.swift in Sources */,
 				C7B7C3831D96264000924443 /* Player.swift in Sources */,
 				C7B7C3851D972BD200924443 /* Board.swift in Sources */,
@@ -375,6 +380,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C7185DF21E1CA73F0047675B /* Events.swift in Sources */,
 				C7B7C3AB1DA9594900924443 /* GameHistory.swift in Sources */,
 				C7B7C3AC1DA95A3100924443 /* Game.swift in Sources */,
 				C7B7C3A51DA941CE00924443 /* Logger.swift in Sources */,
@@ -626,6 +632,7 @@
 				C759F0831DD414E20017BED8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		C759F0871DD414E20017BED8 /* Build configuration list for PBXNativeTarget "Tx3LibTests" */ = {
 			isa = XCConfigurationList;
@@ -634,6 +641,7 @@
 				C759F0851DD414E20017BED8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		C7B7C3711D8CC4FE00924443 /* Build configuration list for PBXProject "tictactoe" */ = {
 			isa = XCConfigurationList;

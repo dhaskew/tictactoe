@@ -8,30 +8,50 @@
 
 import Foundation
 
+let events = EventManager()
+
+func BeforeNewGameListener(information:Any?)
+{
+    if let info = information as? String {
+        print(info)
+    }
+}
+
+events.listenTo(eventName: "BeforeNewGame", action: BeforeNewGameListener)
+
+events.listenTo(eventName: "BeforeQuit", action: {
+    print("Cleaning up and exiting ...");
+});
+
+
+func GameOverHandler(information:Any?)
+{
+    if let game = information as? Game {
+        game.History?.Print()
+    }
+}
+
+events.listenTo(eventName: "GameOver", action: GameOverHandler)
+
 var fc = FrameworkClass()
 
 IO.PrintWelcomeMessage()
 
-var ContinueMainMenuLoop = true
-
-while(ContinueMainMenuLoop)
+while(true)
 {
-    let response = IO.StartMainMenu()
+    let response: String = IO.StartMainMenu()
     
     if(response.lowercased() == "n")
     {
-        let setup = IO.SetupGame()
+        events.trigger(eventName: "BeforeNewGame", information: "A new game is about to start")
+        
+        let setup: GameSetup = IO.SetupGame()
         
         var NewGame = Game(initial_setup: setup)
         
-        //print(setup.Player1)
-        //print(setup.Player2)
-        
         NewGame.Play()
         
-        NewGame.History?.Print()
-        
-        //sleep(5)
+        events.trigger(eventName: "GameOver", information: NewGame)
     }
     else if(response.lowercased() == "a")
     {
@@ -39,6 +59,8 @@ while(ContinueMainMenuLoop)
     }
     else if(response.lowercased() == "q")
     {
+        events.trigger(eventName: "BeforeQuit")
+        sleep(3)
         exit(EXIT_SUCCESS)
     }
     else
